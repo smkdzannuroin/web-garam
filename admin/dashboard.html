@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard Admin SCM Garam - Monitoring produksi, distribusi, dan stok garam">
+  <title>Dashboard Admin — SCM Garam</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <!-- DataTables CSS -->
+  <link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <h4><i class="fas fa-cubes me-2"></i>SCM Garam</h4>
+      <small>Supply Chain Management</small>
+    </div>
+    <nav class="mt-3">
+      <a href="dashboard.html" class="nav-link active" id="nav-dashboard">
+        <i class="fas fa-tachometer-alt"></i> Dashboard
+      </a>
+      <a href="produk.html" class="nav-link" id="nav-produk">
+        <i class="fas fa-box"></i> Produk
+      </a>
+      <a href="produksi.html" class="nav-link" id="nav-produksi">
+        <i class="fas fa-industry"></i> Produksi
+      </a>
+      <a href="supplier.html" class="nav-link" id="nav-supplier">
+        <i class="fas fa-handshake"></i> Supplier
+      </a>
+      <a href="gudang.html" class="nav-link" id="nav-gudang">
+        <i class="fas fa-warehouse"></i> Gudang
+      </a>
+      <a href="distribusi.html" class="nav-link" id="nav-distribusi">
+        <i class="fas fa-truck"></i> Distribusi
+      </a>
+      <a href="transaksi.html" class="nav-link" id="nav-transaksi">
+        <i class="fas fa-receipt"></i> Transaksi
+      </a>
+      <a href="laporan.html" class="nav-link" id="nav-laporan">
+        <i class="fas fa-file-alt"></i> Laporan
+      </a>
+      <hr style="border-color: rgba(255,255,255,0.15); margin: 10px 20px;">
+      <a href="#" class="nav-link" id="logoutBtn">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="main-content">
+
+    <!-- Top Navbar -->
+    <div class="top-navbar">
+      <div>
+        <span class="page-title">Dashboard</span>
+        <span class="text-muted ms-2 small">— Selamat datang, <strong id="userName">Admin</strong></span>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <button class="theme-toggle" id="themeToggleBtn">
+          <i class="fas fa-moon"></i> Dark
+        </button>
+        <div class="dropdown">
+          <button class="btn btn-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">
+            <i class="fas fa-user-circle me-1"></i> Admin
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Pengaturan</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item text-danger" href="#" id="logoutBtn2"><i
+                  class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== STAT CARDS ===== -->
+    <div class="row g-4 mb-4 animate-fade-in">
+      <div class="col-xl-3 col-md-6">
+        <div class="stat-card blue">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="stat-label">Total Produk</div>
+              <div class="stat-value" id="statProduk">128</div>
+              <small class="text-success"><i class="fas fa-arrow-up"></i> +12% dari bulan lalu</small>
+            </div>
+            <div class="stat-icon blue"><i class="fas fa-box"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="stat-card green">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="stat-label">Produksi Bulan Ini</div>
+              <div class="stat-value" id="statProduksi">5.4T</div>
+              <small class="text-success"><i class="fas fa-arrow-up"></i> +8% dari bulan lalu</small>
+            </div>
+            <div class="stat-icon green"><i class="fas fa-industry"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="stat-card orange">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="stat-label">Order Pending</div>
+              <div class="stat-value" id="statPending">24</div>
+              <small class="text-danger"><i class="fas fa-arrow-down"></i> -3% dari bulan lalu</small>
+            </div>
+            <div class="stat-icon orange"><i class="fas fa-clock"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-6">
+        <div class="stat-card teal">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="stat-label">Stok Gudang</div>
+              <div class="stat-value" id="statStok">12.8T</div>
+              <small class="text-success"><i class="fas fa-arrow-up"></i> +5% dari bulan lalu</small>
+            </div>
+            <div class="stat-icon teal"><i class="fas fa-warehouse"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CHARTS ===== -->
+    <div class="row g-4 mb-4 animate-fade-in">
+      <!-- Grafik Produksi Bulanan (Bar Chart) -->
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header bg-transparent border-0 pt-4 px-4">
+            <h6 class="fw-bold mb-0"><i class="fas fa-chart-bar me-2 text-primary"></i>Produksi Bulanan (Ton)</h6>
+          </div>
+          <div class="card-body">
+            <canvas id="chartProduksi" height="100"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grafik Distribusi per Wilayah (Doughnut Chart) -->
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-header bg-transparent border-0 pt-4 px-4">
+            <h6 class="fw-bold mb-0"><i class="fas fa-chart-pie me-2 text-success"></i>Distribusi per Wilayah</h6>
+          </div>
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <canvas id="chartDistribusi" height="220"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TABEL TRANSAKSI TERBARU (DataTables) ===== -->
+    <div class="card animate-fade-in">
+      <div class="card-header bg-transparent border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
+        <h6 class="fw-bold mb-0"><i class="fas fa-receipt me-2 text-warning"></i>Transaksi Terbaru</h6>
+        <a href="transaksi.html" class="btn btn-sm btn-outline-primary">Lihat Semua</a>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover" id="tabelTransaksi" style="width:100%">
+            <thead>
+              <tr>
+                <th>No. Order</th>
+                <th>Tanggal</th>
+                <th>Pembeli</th>
+                <th>Produk</th>
+                <th>Jumlah (Kg)</th>
+                <th>Total</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Data akan dimuat dari MySQL melalui backend API -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- /.main-content -->
+
+  <!-- ===== SCRIPTS ===== -->
+  <!-- jQuery (required by DataTables) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Chart.js 4 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Custom JS -->
+  <script src="../assets/js/main.js"></script>
+
+  <script>
+    /**
+     * ============================================
+     * Admin Dashboard — Chart.js & DataTables
+     * ============================================
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ---- 1. Chart.js: Produksi Bulanan (Bar Chart) ----
+      const ctxProduksi = document.getElementById('chartProduksi').getContext('2d');
+      const gradientBlue = ctxProduksi.createLinearGradient(0, 0, 0, 400);
+      gradientBlue.addColorStop(0, 'rgba(21, 101, 192, 0.8)');
+      gradientBlue.addColorStop(1, 'rgba(21, 101, 192, 0.1)');
+
+      new Chart(ctxProduksi, {
+        type: 'bar',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
+          datasets: [{
+            label: 'Produksi (Ton)',
+            data: [320, 450, 380, 510, 600, 540, 480, 620, 550, 700, 650, 580],
+            backgroundColor: gradientBlue,
+            borderColor: '#1565c0',
+            borderWidth: 2,
+            borderRadius: 6,
+            borderSkipped: false,
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              labels: {
+                color: getComputedStyle(document.documentElement).getPropertyValue('--text-primary'),
+                font: { family: 'Inter', weight: '600' }
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => `${ctx.parsed.y} Ton`
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                color: '#9e9e9e',
+                callback: (val) => val + ' T'
+              },
+              grid: { color: 'rgba(0,0,0,0.05)' }
+            },
+            x: {
+              ticks: { color: '#9e9e9e' },
+              grid: { display: false }
+            }
+          }
+        }
+      });
+
+      // ---- 2. Chart.js: Distribusi per Wilayah (Doughnut Chart) ----
+      const ctxDistribusi = document.getElementById('chartDistribusi').getContext('2d');
+      new Chart(ctxDistribusi, {
+        type: 'doughnut',
+        data: {
+          labels: ['Jawa Timur', 'Jawa Tengah', 'Jawa Barat', 'Sumatera', 'Kalimantan'],
+          datasets: [{
+            data: [35, 25, 20, 12, 8],
+            backgroundColor: [
+              '#1565c0',
+              '#26a69a',
+              '#ff7043',
+              '#ffa726',
+              '#ab47bc',
+            ],
+            borderWidth: 3,
+            borderColor: getComputedStyle(document.documentElement).getPropertyValue('--bg-card') || '#fff',
+            hoverOffset: 8,
+          }]
+        },
+        options: {
+          responsive: true,
+          cutout: '65%',
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                color: getComputedStyle(document.documentElement).getPropertyValue('--text-primary'),
+                padding: 12,
+                font: { family: 'Inter', size: 12 }
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => `${ctx.label}: ${ctx.parsed}%`
+              }
+            }
+          }
+        }
+      });
+
+      // ---- 3. DataTables: Tabel Transaksi ----
+      $('#tabelTransaksi').DataTable({
+        pageLength: 5,
+        lengthMenu: [5, 10, 25],
+        language: {
+          search: 'Cari:',
+          lengthMenu: 'Tampilkan _MENU_ data',
+          info: 'Menampilkan _START_ - _END_ dari _TOTAL_ data',
+          paginate: { previous: '‹', next: '›' },
+          zeroRecords: 'Data tidak ditemukan',
+          emptyTable: 'Tidak ada data transaksi',
+        },
+        order: [[1, 'desc']],
+        columnDefs: [
+          { orderable: false, targets: [6] }
+        ]
+      });
+
+      // ---- 4. Fetch Data dari API (opsional, saat backend aktif) ----
+      async function loadDashboardData() {
+        try {
+          const res = await apiGet('/dashboard/stats');
+          if (res && res.ok) {
+            const d = res.data;
+            document.getElementById('statProduk').textContent = d.total_produk ?? '128';
+            document.getElementById('statProduksi').textContent = (d.produksi_bulan_ini ?? '5.4') + 'T';
+            document.getElementById('statPending').textContent = d.order_pending ?? '24';
+            document.getElementById('statStok').textContent = (d.stok_gudang ?? '12.8') + 'T';
+          }
+        } catch (e) {
+          // Gunakan data dummy jika API belum aktif
+          console.log('API belum aktif, menggunakan data dummy.');
+        }
+      }
+
+      // Panggil API untuk mengambil data dari backend
+      loadDashboardData();
+    });
+  </script>
+
+</body>
+
+</html>

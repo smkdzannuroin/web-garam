@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Digital Supply Chain Management Garam - Sistem manajemen rantai pasok garam terintegrasi dari Petani hingga Konsumen"
+    />
+    <title>SCM Garam — Digital Supply Chain Management</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome 6 -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background: linear-gradient(135deg, #0d47a1, #1565c0)"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+          <i class="fas fa-cubes me-2"></i>SCM Garam
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarLanding"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarLanding">
+          <ul class="navbar-nav ms-auto align-items-center gap-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#fitur">Fitur</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#alur">Alur SCM</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tentang">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="btn btn-outline-light btn-sm px-3"
+                href="auth/login.html"
+              >
+                <i class="fas fa-sign-in-alt me-1"></i>Login
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="btn btn-warning btn-sm px-3 fw-bold"
+                href="auth/register.html"
+              >
+                <i class="fas fa-user-plus me-1"></i>Daftar
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="animate-fade-in">
+          Digital Supply Chain<br />Management Garam
+        </h1>
+        <p class="animate-fade-in">
+          Sistem terintegrasi untuk mengelola rantai pasok garam dari petani
+          hingga konsumen akhir. Pantau produksi, distribusi, dan stok secara
+          real-time.
+        </p>
+        <div class="d-flex justify-content-center gap-3 animate-fade-in">
+          <a
+            href="auth/register.html"
+            class="btn btn-warning btn-lg fw-bold px-4"
+          >
+            <i class="fas fa-rocket me-2"></i>Mulai Sekarang
+          </a>
+          <a href="#alur" class="btn btn-outline-light btn-lg px-4">
+            <i class="fas fa-play-circle me-2"></i>Lihat Alur
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FITUR UNGGULAN ===== -->
+    <section id="fitur" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">
+            Fitur <span class="text-gradient">Unggulan</span>
+          </h2>
+          <p class="text-muted">
+            Semua yang Anda butuhkan untuk mengelola supply chain garam
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card text-center p-4 h-100">
+              <div class="card-body">
+                <div class="mb-3">
+                  <i
+                    class="fas fa-chart-bar fa-3x"
+                    style="color: var(--primary)"
+                  ></i>
+                </div>
+                <h5 class="fw-bold">Dashboard Analitik</h5>
+                <p class="text-muted">
+                  Visualisasi data produksi dan distribusi garam secara
+                  real-time dengan grafik interaktif.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-center p-4 h-100">
+              <div class="card-body">
+                <div class="mb-3">
+                  <i
+                    class="fas fa-warehouse fa-3x"
+                    style="color: var(--secondary)"
+                  ></i>
+                </div>
+                <h5 class="fw-bold">Manajemen Gudang</h5>
+                <p class="text-muted">
+                  Pantau stok garam di setiap gudang, kelola masuk-keluar barang
+                  secara otomatis.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-center p-4 h-100">
+              <div class="card-body">
+                <div class="mb-3">
+                  <i
+                    class="fas fa-truck fa-3x"
+                    style="color: var(--accent)"
+                  ></i>
+                </div>
+                <h5 class="fw-bold">Tracking Distribusi</h5>
+                <p class="text-muted">
+                  Lacak pengiriman dari gudang ke titik distribusi dan konsumen
+                  secara transparan.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-center p-4 h-100">
+              <div class="card-body">
+                <div class="mb-3">
+                  <i
+                    class="fas fa-shopping-cart fa-3x"
+                    style="color: var(--success)"
+                  ></i>
+                </div>
+                <h5 class="fw-bold">Pemesanan Online</h5>
+                <p class="text-muted">
+                  Pesan garam langsung dari katalog produk dengan proses
+                  checkout yang mudah.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-center p-4 h-100">
+              <div class="card-body">
+                <div class="mb-3">
+                  <i
+                    class="fas fa-users fa-3x"
+                    style="color: var(--warning)"
+                  ></i>
+                </div>
+                <h5 class="fw-bold">Multi-Role Access</h5>
+                <p class="text-muted">
+                  Admin, Supplier, dan Konsumen memiliki dashboard yang
+                  disesuaikan kebutuhannya.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-center p-4 h-100">
+              <div class="card-body">
+                <div class="mb-3">
+                  <i
+                    class="fas fa-file-alt fa-3x"
+                    style="color: var(--danger)"
+                  ></i>
+                </div>
+                <h5 class="fw-bold">Laporan Otomatis</h5>
+                <p class="text-muted">
+                  Generate laporan produksi, distribusi, dan transaksi secara
+                  otomatis dalam format PDF.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ALUR SUPPLY CHAIN ===== -->
+    <section id="alur" class="py-5" style="background: var(--bg-body)">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">
+            Alur <span class="text-gradient">Supply Chain</span> Garam
+          </h2>
+          <p class="text-muted">
+            Perjalanan garam dari sumber hingga tangan konsumen
+          </p>
+        </div>
+        <div class="flow-diagram">
+          <!-- Petani -->
+          <div class="flow-step">
+            <i class="fas fa-seedling" style="color: var(--success)"></i>
+            <div class="step-label">Petani Garam</div>
+            <small class="text-muted">Produksi</small>
+          </div>
+          <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+          <!-- Pengepul -->
+          <div class="flow-step">
+            <i class="fas fa-people-carry" style="color: var(--primary)"></i>
+            <div class="step-label">Pengepul</div>
+            <small class="text-muted">Pengumpulan</small>
+          </div>
+          <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+          <!-- Distributor -->
+          <div class="flow-step">
+            <i class="fas fa-truck" style="color: var(--accent)"></i>
+            <div class="step-label">Distributor</div>
+            <small class="text-muted">Distribusi</small>
+          </div>
+          <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+          <!-- Gudang -->
+          <div class="flow-step">
+            <i class="fas fa-warehouse" style="color: var(--warning)"></i>
+            <div class="step-label">Gudang</div>
+            <small class="text-muted">Penyimpanan</small>
+          </div>
+          <div class="flow-arrow"><i class="fas fa-chevron-right"></i></div>
+          <!-- Konsumen -->
+          <div class="flow-step">
+            <i class="fas fa-user-check" style="color: var(--secondary)"></i>
+            <div class="step-label">Konsumen</div>
+            <small class="text-muted">Pembelian</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TENTANG ===== -->
+    <section id="tentang" class="py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h2 class="fw-bold mb-3">
+              Tentang <span class="text-gradient">SCM Garam</span>
+            </h2>
+            <p class="text-muted">
+              Sistem Digital Supply Chain Management Garam adalah platform yang
+              dirancang untuk mengoptimalkan seluruh rantai pasok garam di
+              Indonesia — dari proses produksi di tambak garam, pengumpulan oleh
+              pengepul, distribusi melalui jalur logistik, penyimpanan di
+              gudang, hingga sampai ke tangan konsumen akhir.
+            </p>
+            <ul class="list-unstyled mt-3">
+              <li class="mb-2">
+                <i class="fas fa-check-circle text-success me-2"></i
+                >Transparansi rantai pasok end-to-end
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-check-circle text-success me-2"></i>Monitoring
+                stok dan distribusi real-time
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-check-circle text-success me-2"></i>Laporan
+                otomatis untuk pengambilan keputusan
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-check-circle text-success me-2"></i>Integrasi
+                REST API modern (Laravel Sanctum)
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 text-center">
+            <div class="p-4">
+              <i
+                class="fas fa-cubes"
+                style="font-size: 10rem; color: var(--primary); opacity: 0.15"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="py-4" style="background: #0d47a1; color: #ffffffcc">
+      <div class="container text-center">
+        <p class="mb-1">
+          <strong>SCM Garam</strong> — Digital Supply Chain Management
+        </p>
+        <p class="mb-0 small">
+          © 2026 SCM Garam. Dibuat untuk kebutuhan Tugas uas.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
