@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link href="../assets/css/style.css" rel="stylesheet">
 </head>
+
 <body>
   <div class="auth-wrapper">
     <div class="auth-card animate-fade-in">
@@ -68,24 +70,22 @@
       btn.disabled = true;
       btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Memproses...';
 
-      const res = await apiPost('/login', { email, password });
-
-      if (res && res.ok) {
-        setToken(res.data.token);
-        setUser(res.data.user);
-        showToast('success', 'Login berhasil!');
-        const role = res.data.user.role;
-        setTimeout(() => {
-          window.location.href = role === 'admin'
-            ? '../admin/dashboard.html'
-            : '../user/dashboard.html';
-        }, 1000);
-      } else {
-        showAlert('error', 'Login Gagal', res?.data?.message || 'Email atau password salah.');
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-sign-in-alt me-2"></i>Login';
-      }
+      setTimeout(() => {
+        if (email === 'admin@gmail.com' && password === 'admin123') {
+          setToken('token-demo-123');
+          setUser({ name: 'Administrator', role: 'admin' });
+          showToast('success', 'Login berhasil!');
+          setTimeout(() => {
+            window.location.href = '../admin/dashboard.html';
+          }, 1000);
+        } else {
+          showAlert('error', 'Login Gagal', 'Email atau password salah.');
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fas fa-sign-in-alt me-2"></i>Login';
+        }
+      }, 1000);
     });
   </script>
 </body>
+
 </html>
